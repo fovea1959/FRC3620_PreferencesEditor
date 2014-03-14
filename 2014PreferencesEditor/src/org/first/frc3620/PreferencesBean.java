@@ -93,10 +93,64 @@ public class PreferencesBean {
     }
     
     public Integer setHueLower(){
-      this.hueLower = _new;
+      this.hueLower =  _new;
       if(DEBUG){
         System.err.println("hueLower = "+ this.hueLower);
       }
     }
 
+    public Integer getHueUpper(){
+     return hueUpper;
+    }
+
+    public Integer setHueUpper(){
+      this.hueUpper = _new;
+      if(DEBUG){
+        System.err.println("hueUpper = " + this.hueUpper);
+        }
+    }
+
+    public Integer getSaturationLower(){
+      return saturationLower;
+    }
+
+    public Integer setSaturationLower(){
+      this.saturationLower = _new;
+      if(DEBUG){
+        System.err.println("saturationLower = "+ this.saturationLower);
+        }
+    }
+
+    public Inter getSaturationUpper(){
+      return saturationUpper;
+    }
+
+    public Integer setSaturationUpper(){
+      this.saturationUpper = _new;
+      if(DEBUG){
+        System.err.println("saturationUpper = "+this.saturationUpper);
+        }
+    }
+    
+    public Integer getValueLower(){
+      return valueLower;
+    }
+
+    public Integer setValueLower(){
+      this.valueLower = _new;
+      if(DEBUG){
+        System.err.println("valueLower = "+this.valueLower);
+        }
+    }
+
+    public Integer getValueUpper(){
+      return valueUpper;
+    }
+
+    public Integer setValueUpper(){
+      this.valueUpper = _new;
+      if(DEBUG){
+        System.err.println("valueUpper = "+this.valueUpper);
+        }
+    }
 }
