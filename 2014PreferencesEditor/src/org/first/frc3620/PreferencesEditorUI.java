@@ -63,12 +63,12 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     jLabel10 = new javax.swing.JLabel();
     jLabel11 = new javax.swing.JLabel();
     jLabel12 = new javax.swing.JLabel();
-    jSlider1 = new javax.swing.JSlider();
-    jSlider2 = new javax.swing.JSlider();
-    jSlider3 = new javax.swing.JSlider();
-    jSlider4 = new javax.swing.JSlider();
-    jSlider5 = new javax.swing.JSlider();
-    jSlider6 = new javax.swing.JSlider();
+    hueLowerSlider = new javax.swing.JSlider();
+    hueUpperSlider = new javax.swing.JSlider();
+    saturationLowerSlider = new javax.swing.JSlider();
+    saturationUpperSlider = new javax.swing.JSlider();
+    valueLowerSlider = new javax.swing.JSlider();
+    valueUpperSlider = new javax.swing.JSlider();
     jTabbedPane2 = new javax.swing.JTabbedPane();
 
     jLabel8.setText("jLabel8");
@@ -255,46 +255,46 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
 
     jLabel12.setText("ValueUpper");
 
-    jSlider1.setMajorTickSpacing(32);
-    jSlider1.setMaximum(255);
-    jSlider1.setMinorTickSpacing(8);
-    jSlider1.setPaintLabels(true);
-    jSlider1.setPaintTicks(true);
-    jSlider1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+    hueLowerSlider.setMajorTickSpacing(32);
+    hueLowerSlider.setMaximum(255);
+    hueLowerSlider.setMinorTickSpacing(8);
+    hueLowerSlider.setPaintLabels(true);
+    hueLowerSlider.setPaintTicks(true);
+    hueLowerSlider.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
       public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-        jSlider1MouseWheelMoved(evt);
+        hueLowerSliderMouseWheelMoved(evt);
       }
     });
 
-    jSlider2.setMajorTickSpacing(32);
-    jSlider2.setMaximum(255);
-    jSlider2.setMinorTickSpacing(8);
-    jSlider2.setPaintLabels(true);
-    jSlider2.setPaintTicks(true);
+    hueUpperSlider.setMajorTickSpacing(32);
+    hueUpperSlider.setMaximum(255);
+    hueUpperSlider.setMinorTickSpacing(8);
+    hueUpperSlider.setPaintLabels(true);
+    hueUpperSlider.setPaintTicks(true);
 
-    jSlider3.setMajorTickSpacing(32);
-    jSlider3.setMaximum(255);
-    jSlider3.setMinorTickSpacing(8);
-    jSlider3.setPaintLabels(true);
-    jSlider3.setPaintTicks(true);
+    saturationLowerSlider.setMajorTickSpacing(32);
+    saturationLowerSlider.setMaximum(255);
+    saturationLowerSlider.setMinorTickSpacing(8);
+    saturationLowerSlider.setPaintLabels(true);
+    saturationLowerSlider.setPaintTicks(true);
 
-    jSlider4.setMajorTickSpacing(32);
-    jSlider4.setMaximum(255);
-    jSlider4.setMinorTickSpacing(8);
-    jSlider4.setPaintLabels(true);
-    jSlider4.setPaintTicks(true);
+    saturationUpperSlider.setMajorTickSpacing(32);
+    saturationUpperSlider.setMaximum(255);
+    saturationUpperSlider.setMinorTickSpacing(8);
+    saturationUpperSlider.setPaintLabels(true);
+    saturationUpperSlider.setPaintTicks(true);
 
-    jSlider5.setMajorTickSpacing(32);
-    jSlider5.setMaximum(255);
-    jSlider5.setMinorTickSpacing(8);
-    jSlider5.setPaintLabels(true);
-    jSlider5.setPaintTicks(true);
+    valueLowerSlider.setMajorTickSpacing(32);
+    valueLowerSlider.setMaximum(255);
+    valueLowerSlider.setMinorTickSpacing(8);
+    valueLowerSlider.setPaintLabels(true);
+    valueLowerSlider.setPaintTicks(true);
 
-    jSlider6.setMajorTickSpacing(32);
-    jSlider6.setMaximum(255);
-    jSlider6.setMinorTickSpacing(8);
-    jSlider6.setPaintLabels(true);
-    jSlider6.setPaintTicks(true);
+    valueUpperSlider.setMajorTickSpacing(32);
+    valueUpperSlider.setMaximum(255);
+    valueUpperSlider.setMinorTickSpacing(8);
+    valueUpperSlider.setPaintLabels(true);
+    valueUpperSlider.setPaintTicks(true);
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
@@ -312,12 +312,12 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         .addGap(67, 67, 67)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-          .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jSlider4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jSlider5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jSlider6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(hueLowerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+          .addComponent(hueUpperSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(saturationLowerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(saturationUpperSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(valueLowerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(valueUpperSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap())
     );
     jPanel2Layout.setVerticalGroup(
@@ -325,29 +325,29 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
       .addGroup(jPanel2Layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(hueLowerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(hueUpperSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addGap(18, 18, 18)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
           .addGroup(jPanel2Layout.createSequentialGroup()
-            .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(saturationLowerSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(saturationUpperSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
           .addGroup(jPanel2Layout.createSequentialGroup()
             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
         .addGap(18, 18, 18)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jSlider5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(valueLowerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jSlider6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(valueUpperSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap(21, Short.MAX_VALUE))
     );
@@ -419,9 +419,9 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     clearErrorMessages();
   }//GEN-LAST:event_clearErrorButtonActionPerformed
 
-  private void jSlider1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jSlider1MouseWheelMoved
+  private void hueLowerSliderMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_hueLowerSliderMouseWheelMoved
     // TODO add your handling code here:
-  }//GEN-LAST:event_jSlider1MouseWheelMoved
+  }//GEN-LAST:event_hueLowerSliderMouseWheelMoved
 
   private void autonomousComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autonomousComboBoxActionPerformed
     // TODO add your handling code here:
@@ -434,6 +434,12 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
         preferencesBean.setcRIOName(cRIONameField.getText());
         preferencesBean.setAutonomousForwardDistance(autonomousForwardDistanceSlider.getValue());
         preferencesBean.setIntakeSpeed(intakeSpeedSlider.getValue());
+        preferencesBean.setHueLower(hueLowerSlider.getValue());
+        preferencesBean.setHueUpper(hueUpperSlider.getValue());
+        preferencesBean.setSaturationLower(saturationLowerSlider.getValue());
+        preferencesBean.setSaturationUpper(saturationUpperSlider.getValue());
+        preferencesBean.setValueLower(valueLowerSlider.getValue());
+        preferencesBean.setValueUpper(valueUpperSlider.getValue());
         
         return preferencesBean;
        
@@ -445,6 +451,12 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
         cRIONameField.setText(p.cRIOName);
         autonomousForwardDistanceSlider.setValue(p.autonomousForwardDistance);
         intakeSpeedSlider.setValue(p.intakeSpeed);
+        hueLowerSlider.setValue(p.hueLower);
+        hueUpperSlider.setValue(p.hueUpper);
+        saturationLowerSlider.setValue(p.saturationLower);
+        saturationUpperSlider.setValue(p.saturationUpper);
+        valueLowerSlider.setValue(p.valueLower);
+        valueUpperSlider.setValue(p.valueUpper);
     }
     
     public void addErrorMessage (String s) {
@@ -476,6 +488,8 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
   private javax.swing.JButton clearErrorButton;
   private javax.swing.JTextArea errorTextArea;
   private javax.swing.JButton fetchButton;
+  private javax.swing.JSlider hueLowerSlider;
+  private javax.swing.JSlider hueUpperSlider;
   private javax.swing.JSlider intakeSpeedSlider;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
@@ -493,16 +507,14 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel2;
   private javax.swing.JPanel jPanel3;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JSlider jSlider1;
-  private javax.swing.JSlider jSlider2;
-  private javax.swing.JSlider jSlider3;
-  private javax.swing.JSlider jSlider4;
-  private javax.swing.JSlider jSlider5;
-  private javax.swing.JSlider jSlider6;
   private javax.swing.JTabbedPane jTabbedPane1;
   private javax.swing.JTabbedPane jTabbedPane2;
+  private javax.swing.JSlider saturationLowerSlider;
+  private javax.swing.JSlider saturationUpperSlider;
   private javax.swing.JButton saveButton;
   private javax.swing.JPanel statusPanel;
+  private javax.swing.JSlider valueLowerSlider;
+  private javax.swing.JSlider valueUpperSlider;
   private org.jdesktop.beansbinding.BindingGroup bindingGroup;
   // End of variables declaration//GEN-END:variables
 }

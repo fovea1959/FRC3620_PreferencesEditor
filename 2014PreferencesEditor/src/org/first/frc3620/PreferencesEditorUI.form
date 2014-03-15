@@ -381,12 +381,12 @@
                       </Group>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSlider1" pref="498" max="32767" attributes="0"/>
-                          <Component id="jSlider2" max="32767" attributes="0"/>
-                          <Component id="jSlider3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSlider4" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jSlider5" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSlider6" alignment="0" max="32767" attributes="0"/>
+                          <Component id="hueLowerSlider" pref="498" max="32767" attributes="0"/>
+                          <Component id="hueUpperSlider" max="32767" attributes="0"/>
+                          <Component id="saturationLowerSlider" alignment="0" max="32767" attributes="0"/>
+                          <Component id="saturationUpperSlider" alignment="1" max="32767" attributes="0"/>
+                          <Component id="valueLowerSlider" alignment="0" max="32767" attributes="0"/>
+                          <Component id="valueUpperSlider" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -397,20 +397,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jSlider1" max="32767" attributes="0"/>
+                          <Component id="hueLowerSlider" max="32767" attributes="0"/>
                           <Component id="jLabel6" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jSlider2" max="32767" attributes="0"/>
+                          <Component id="hueUpperSlider" max="32767" attributes="0"/>
                           <Component id="jLabel7" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jSlider3" min="-2" max="-2" attributes="0"/>
+                              <Component id="saturationLowerSlider" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSlider4" min="-2" max="-2" attributes="0"/>
+                              <Component id="saturationUpperSlider" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel9" min="-2" pref="47" max="-2" attributes="0"/>
@@ -420,12 +420,12 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jSlider5" max="32767" attributes="0"/>
+                          <Component id="valueLowerSlider" max="32767" attributes="0"/>
                           <Component id="jLabel11" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jSlider6" max="32767" attributes="0"/>
+                          <Component id="valueUpperSlider" max="32767" attributes="0"/>
                           <Component id="jLabel12" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
@@ -464,7 +464,7 @@
                 <Property name="text" type="java.lang.String" value="ValueUpper"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSlider" name="jSlider1">
+            <Component class="javax.swing.JSlider" name="hueLowerSlider">
               <Properties>
                 <Property name="majorTickSpacing" type="int" value="32"/>
                 <Property name="maximum" type="int" value="255"/>
@@ -473,10 +473,10 @@
                 <Property name="paintTicks" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="jSlider1MouseWheelMoved"/>
+                <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="hueLowerSliderMouseWheelMoved"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JSlider" name="jSlider2">
+            <Component class="javax.swing.JSlider" name="hueUpperSlider">
               <Properties>
                 <Property name="majorTickSpacing" type="int" value="32"/>
                 <Property name="maximum" type="int" value="255"/>
@@ -485,7 +485,7 @@
                 <Property name="paintTicks" type="boolean" value="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSlider" name="jSlider3">
+            <Component class="javax.swing.JSlider" name="saturationLowerSlider">
               <Properties>
                 <Property name="majorTickSpacing" type="int" value="32"/>
                 <Property name="maximum" type="int" value="255"/>
@@ -494,7 +494,7 @@
                 <Property name="paintTicks" type="boolean" value="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSlider" name="jSlider4">
+            <Component class="javax.swing.JSlider" name="saturationUpperSlider">
               <Properties>
                 <Property name="majorTickSpacing" type="int" value="32"/>
                 <Property name="maximum" type="int" value="255"/>
@@ -503,7 +503,7 @@
                 <Property name="paintTicks" type="boolean" value="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSlider" name="jSlider5">
+            <Component class="javax.swing.JSlider" name="valueLowerSlider">
               <Properties>
                 <Property name="majorTickSpacing" type="int" value="32"/>
                 <Property name="maximum" type="int" value="255"/>
@@ -512,7 +512,7 @@
                 <Property name="paintTicks" type="boolean" value="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSlider" name="jSlider6">
+            <Component class="javax.swing.JSlider" name="valueUpperSlider">
               <Properties>
                 <Property name="majorTickSpacing" type="int" value="32"/>
                 <Property name="maximum" type="int" value="255"/>
