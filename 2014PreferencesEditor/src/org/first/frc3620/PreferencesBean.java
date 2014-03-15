@@ -92,7 +92,7 @@ public class PreferencesBean {
       return hueLower;
     }
     
-    public Integer setHueLower(){
+    public void setHueLower(Integer _new){
       this.hueLower =  _new;
       if(DEBUG){
         System.err.println("hueLower = "+ this.hueLower);
@@ -103,7 +103,7 @@ public class PreferencesBean {
      return hueUpper;
     }
 
-    public Integer setHueUpper(){
+    public void setHueUpper(Integer _new){
       this.hueUpper = _new;
       if(DEBUG){
         System.err.println("hueUpper = " + this.hueUpper);
@@ -114,18 +114,18 @@ public class PreferencesBean {
       return saturationLower;
     }
 
-    public Integer setSaturationLower(){
+    public void setSaturationLower(Integer _new){
       this.saturationLower = _new;
       if(DEBUG){
         System.err.println("saturationLower = "+ this.saturationLower);
         }
     }
 
-    public Inter getSaturationUpper(){
+    public Integer getSaturationUpper(){
       return saturationUpper;
     }
 
-    public Integer setSaturationUpper(){
+    public void setSaturationUpper(Integer _new){
       this.saturationUpper = _new;
       if(DEBUG){
         System.err.println("saturationUpper = "+this.saturationUpper);
@@ -136,7 +136,7 @@ public class PreferencesBean {
       return valueLower;
     }
 
-    public Integer setValueLower(){
+    public void setValueLower(Integer _new){
       this.valueLower = _new;
       if(DEBUG){
         System.err.println("valueLower = "+this.valueLower);
@@ -147,7 +147,7 @@ public class PreferencesBean {
       return valueUpper;
     }
 
-    public Integer setValueUpper(){
+    public void setValueUpper(Integer _new){
       this.valueUpper = _new;
       if(DEBUG){
         System.err.println("valueUpper = "+this.valueUpper);
