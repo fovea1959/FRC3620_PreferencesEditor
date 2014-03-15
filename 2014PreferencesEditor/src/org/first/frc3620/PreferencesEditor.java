@@ -51,7 +51,7 @@ public class PreferencesEditor implements IPreferencesTransfer, IRemoteConnectio
     }
     //</editor-fold>
 
-    final PreferencesEditor preferencesEditor = new PreferencesEditor(0);
+    final PreferencesEditor preferencesEditor = new PreferencesEditor(3620);
 
   }
 
@@ -93,6 +93,12 @@ public class PreferencesEditor implements IPreferencesTransfer, IRemoteConnectio
       prefTable.putNumber(PreferencesNames.AUTONOMOUS_FORWARD_DISTANCE, preferencesBean.getAutonomousForwardDistance());
       prefTable.putNumber(PreferencesNames.CHOOCHOO_DELAY, preferencesBean.getChooChooDelay());
       prefTable.putNumber(PreferencesNames.INTAKE_SPEED, preferencesBean.getIntakeSpeed());
+      prefTable.putNumber(PreferencesNames.HUE_LOWER, preferencesBean.getHueLower());
+      prefTable.putNumber(PreferencesNames.HUE_UPPER, preferencesBean.getHueUpper());
+      prefTable.putNumber(PreferencesNames.SATURATION_LOWER, preferencesBean.getSaturationLower());
+      prefTable.putNumber(PreferencesNames.SATURATION_UPPER, preferencesBean.getSaturationUpper());
+      prefTable.putNumber(PreferencesNames.VALUE_LOWER, preferencesBean.getValueLower());
+      prefTable.putNumber(PreferencesNames.VALUE_UPPER, preferencesBean.getValueUpper());
 
       prefTable.putBoolean("~S A V E~", true);
       rv = true;
