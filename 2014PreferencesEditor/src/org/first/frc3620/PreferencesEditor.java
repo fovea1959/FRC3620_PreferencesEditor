@@ -6,17 +6,12 @@
 package org.first.frc3620;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import edu.wpi.first.wpilibj.networktables.NetworkTableProvider;
-import edu.wpi.first.wpilibj.networktables2.NetworkTableNode;
-import edu.wpi.first.wpilibj.networktables2.client.NetworkTableClient;
-import edu.wpi.first.wpilibj.networktables2.stream.IOStreamFactory;
-import edu.wpi.first.wpilibj.networktables2.stream.SocketStreams;
 import edu.wpi.first.wpilibj.tables.IRemote;
 import edu.wpi.first.wpilibj.tables.IRemoteConnectionListener;
 import edu.wpi.first.wpilibj.tables.TableKeyNotDefinedException;
 import java.beans.XMLEncoder;
 import java.io.ByteArrayOutputStream;
-import java.util.prefs.PreferenceChangeEvent;
+import java.text.ParseException;
 
 /**
  *
@@ -88,29 +83,33 @@ public class PreferencesEditor implements IPreferencesTransfer, IRemoteConnectio
     boolean rv = false;
 
     if (connected) {
-      prefTable.putString(PreferencesNames.CRIONAME, preferencesBean.getcRIOName());
-      prefTable.putString(PreferencesNames.AUTONOMOUS_CHOICE, preferencesBean.getAutonomousChoice());
-      prefTable.putNumber(PreferencesNames.AUTONOMOUS_FORWARD_DISTANCE, preferencesBean.getAutonomousForwardDistance());
-      prefTable.putNumber(PreferencesNames.CHOOCHOO_DELAY, preferencesBean.getChooChooDelay());
-      prefTable.putNumber(PreferencesNames.INTAKE_SPEED, preferencesBean.getIntakeSpeed());
-      prefTable.putNumber(PreferencesNames.HUE_LOWER, preferencesBean.getHueLower());
-      prefTable.putNumber(PreferencesNames.HUE_UPPER, preferencesBean.getHueUpper());
-      prefTable.putNumber(PreferencesNames.SATURATION_LOWER, preferencesBean.getSaturationLower());
-      prefTable.putNumber(PreferencesNames.SATURATION_UPPER, preferencesBean.getSaturationUpper());
-      prefTable.putNumber(PreferencesNames.VALUE_LOWER, preferencesBean.getValueLower());
-      prefTable.putNumber(PreferencesNames.VALUE_UPPER, preferencesBean.getValueUpper());
+      try {
+        prefTable.putString(PreferencesNames.CRIONAME, preferencesBean.getcRIOName());
+        prefTable.putString(PreferencesNames.AUTONOMOUS_CHOICE, preferencesBean.getAutonomousChoice());
+        putNumber(PreferencesNames.AUTONOMOUS_FORWARD_DISTANCE, preferencesBean.getAutonomousForwardDistance());
+        putNumber(PreferencesNames.CHOOCHOO_DELAY, preferencesBean.getChooChooDelay());
+        putNumber(PreferencesNames.INTAKE_SPEED, preferencesBean.getIntakeSpeed());
+        putNumber(PreferencesNames.HUE_LOWER, preferencesBean.getHueLower());
+        putNumber(PreferencesNames.HUE_UPPER, preferencesBean.getHueUpper());
+        putNumber(PreferencesNames.SATURATION_LOWER, preferencesBean.getSaturationLower());
+        putNumber(PreferencesNames.SATURATION_UPPER, preferencesBean.getSaturationUpper());
+        putNumber(PreferencesNames.VALUE_LOWER, preferencesBean.getValueLower());
+        putNumber(PreferencesNames.VALUE_UPPER, preferencesBean.getValueUpper());
 
-      prefTable.putBoolean("~S A V E~", true);
+        prefTable.putBoolean("~S A V E~", true);
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
       rv = true;
     } else {
       ui.addErrorMessage("cannot save, not connected!");
     }
-    
-    System.out.println (xml(preferencesBean));
-    
+
+    System.out.println(xml(preferencesBean));
+
     return rv;
   }
-  
+
   String xml(PreferencesBean p) {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     XMLEncoder e = new XMLEncoder(baos);
@@ -135,31 +134,96 @@ public class PreferencesEditor implements IPreferencesTransfer, IRemoteConnectio
         ui.addErrorMessage("cannot get " + PreferencesNames.AUTONOMOUS_CHOICE + " from robot");
       }
 
-      try {
-        Number n = prefTable.getNumber(PreferencesNames.AUTONOMOUS_FORWARD_DISTANCE);
-        p.setAutonomousForwardDistance(n.intValue());
-      } catch (TableKeyNotDefinedException ex) {
-        ui.addErrorMessage("cannot get " + PreferencesNames.AUTONOMOUS_FORWARD_DISTANCE + " from robot");
+      {
+        Integer i = getNumber(PreferencesNames.AUTONOMOUS_FORWARD_DISTANCE);
+        if (i != null) {
+          p.setAutonomousForwardDistance(i);
+        }
       }
 
-      try {
-        Number n = prefTable.getNumber(PreferencesNames.CHOOCHOO_DELAY);
-        p.setChooChooDelay(n.intValue());
-      } catch (TableKeyNotDefinedException ex) {
-        ui.addErrorMessage("cannot get " + PreferencesNames.CHOOCHOO_DELAY + " from robot");
+      {
+        Integer i = getNumber(PreferencesNames.CHOOCHOO_DELAY);
+        if (i != null) {
+          p.setChooChooDelay(i);
+        }
       }
 
-      try {
-        Number n = prefTable.getNumber(PreferencesNames.INTAKE_SPEED);
-        p.setIntakeSpeed(n.intValue());
-      } catch (TableKeyNotDefinedException ex) {
-        ui.addErrorMessage("cannot get " + PreferencesNames.INTAKE_SPEED + " from robot");
+      {
+        Integer i = getNumber(PreferencesNames.INTAKE_SPEED);
+        if (i != null) {
+          p.setIntakeSpeed(i);
+        }
       }
+
+      {
+        Integer i = getNumber(PreferencesNames.HUE_LOWER);
+        if (i != null) {
+          p.setHueLower(i);
+        }
+      }
+
+      {
+        Integer i = getNumber(PreferencesNames.HUE_UPPER);
+        if (i != null) {
+          p.setHueUpper(i);
+        }
+      }
+
+      {
+        Integer i = getNumber(PreferencesNames.SATURATION_LOWER);
+        if (i != null) {
+          p.setSaturationLower(i);
+        }
+      }
+
+      {
+        Integer i = getNumber(PreferencesNames.SATURATION_UPPER);
+        if (i != null) {
+          p.setSaturationUpper(i);
+        }
+      }
+
+      {
+        Integer i = getNumber(PreferencesNames.VALUE_LOWER);
+        if (i != null) {
+          p.setValueLower(i);
+        }
+      }
+
+      {
+        Integer i = getNumber(PreferencesNames.VALUE_UPPER);
+        if (i != null) {
+          p.setValueUpper(i);
+        }
+      }
+
     } else {
       ui.addErrorMessage("cannot fetch, not connected!");
     }
 
     return p;
+  }
+
+  void putNumber(String name, int i) {
+    prefTable.putString(name, Integer.toString(i));
+  }
+
+  Integer getNumber(String name) {
+    Integer rv = null;
+
+    String s = "";
+
+    try {
+      s = prefTable.getString(name);
+      Double i = Double.parseDouble(s);
+      rv = i.intValue();
+    } catch (TableKeyNotDefinedException ex) {
+      ui.addErrorMessage("cannot get " + name + " from robot");
+    } catch (NumberFormatException ex) {
+      ui.addErrorMessage("cannot get " + name + " from robot, value = '" + s + "'");
+    }
+    System.out.println(name + " = " + rv);
+    return rv;
   }
 
   @Override
