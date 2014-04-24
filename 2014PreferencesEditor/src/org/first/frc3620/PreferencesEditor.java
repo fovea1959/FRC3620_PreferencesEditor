@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.tables.IRemoteConnectionListener;
 import edu.wpi.first.wpilibj.tables.TableKeyNotDefinedException;
 import java.beans.XMLEncoder;
 import java.io.ByteArrayOutputStream;
-import java.text.ParseException;
 
 /**
  *

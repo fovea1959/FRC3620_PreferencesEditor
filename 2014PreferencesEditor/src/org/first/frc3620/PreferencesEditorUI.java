@@ -7,8 +7,10 @@
 package org.first.frc3620;
 
 import java.awt.Color;
+import java.awt.Event;
 import org.jdesktop.beansbinding.BindingGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +19,9 @@ import javax.swing.DefaultComboBoxModel;
 public class PreferencesEditorUI extends javax.swing.JFrame { 
     IPreferencesTransfer iPreferencesTransfer;
     BindingGroup globalBindingGroup;
+    
+    boolean fetched = false;
+    boolean dirty = false;
     /**
      * Creates new form PreferencesEditorUI
      */
@@ -79,8 +84,13 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
 
     jLabel8.setText("jLabel8");
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
     setTitle("JoeBot4 Preferences Editor");
+    addWindowListener(new java.awt.event.WindowAdapter() {
+      public void windowClosing(java.awt.event.WindowEvent evt) {
+        formWindowClosing(evt);
+      }
+    });
 
     saveButton.setText("Save");
     saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -157,8 +167,19 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     chooChooDelaySlider.setPaintLabels(true);
     chooChooDelaySlider.setPaintTicks(true);
     chooChooDelaySlider.setName("XX"); // NOI18N
+    chooChooDelaySlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        somethingChanged(evt);
+      }
+    });
 
     jLabel2.setText("Choo choo delay");
+
+    cRIONameField.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cRIONameFieldActionPerformed(evt);
+      }
+    });
 
     jLabel3.setText("Autonomous Choice");
 
@@ -168,6 +189,11 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     bindingGroup.addBinding(binding);
 
     autonomousComboBox.setModel(new DefaultComboBoxModel(PreferencesNames.AUTONOMOUS_ALL_CHOICES));
+    autonomousComboBox.addItemListener(new java.awt.event.ItemListener() {
+      public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        autonomousComboBoxItemStateChanged(evt);
+      }
+    });
     autonomousComboBox.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         autonomousComboBoxActionPerformed(evt);
@@ -180,6 +206,11 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     autonomousForwardDistanceSlider.setMinorTickSpacing(5);
     autonomousForwardDistanceSlider.setPaintLabels(true);
     autonomousForwardDistanceSlider.setPaintTicks(true);
+    autonomousForwardDistanceSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        autonomousForwardDistanceSliderStateChanged(evt);
+      }
+    });
 
     jLabel5.setText("Intake Speed");
 
@@ -187,6 +218,11 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     intakeSpeedSlider.setMinorTickSpacing(5);
     intakeSpeedSlider.setPaintLabels(true);
     intakeSpeedSlider.setPaintTicks(true);
+    intakeSpeedSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        intakeSpeedSliderStateChanged(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -266,9 +302,9 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     hueLowerSlider.setMinorTickSpacing(8);
     hueLowerSlider.setPaintLabels(true);
     hueLowerSlider.setPaintTicks(true);
-    hueLowerSlider.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
-      public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-        hueLowerSliderMouseWheelMoved(evt);
+    hueLowerSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        somethingChanged(evt);
       }
     });
 
@@ -277,30 +313,55 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     hueUpperSlider.setMinorTickSpacing(8);
     hueUpperSlider.setPaintLabels(true);
     hueUpperSlider.setPaintTicks(true);
+    hueUpperSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        somethingChanged(evt);
+      }
+    });
 
     saturationLowerSlider.setMajorTickSpacing(32);
     saturationLowerSlider.setMaximum(255);
     saturationLowerSlider.setMinorTickSpacing(8);
     saturationLowerSlider.setPaintLabels(true);
     saturationLowerSlider.setPaintTicks(true);
+    saturationLowerSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        somethingChanged(evt);
+      }
+    });
 
     saturationUpperSlider.setMajorTickSpacing(32);
     saturationUpperSlider.setMaximum(255);
     saturationUpperSlider.setMinorTickSpacing(8);
     saturationUpperSlider.setPaintLabels(true);
     saturationUpperSlider.setPaintTicks(true);
+    saturationUpperSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        somethingChanged(evt);
+      }
+    });
 
     valueLowerSlider.setMajorTickSpacing(32);
     valueLowerSlider.setMaximum(255);
     valueLowerSlider.setMinorTickSpacing(8);
     valueLowerSlider.setPaintLabels(true);
     valueLowerSlider.setPaintTicks(true);
+    valueLowerSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        somethingChanged(evt);
+      }
+    });
 
     valueUpperSlider.setMajorTickSpacing(32);
     valueUpperSlider.setMaximum(255);
     valueUpperSlider.setMinorTickSpacing(8);
     valueUpperSlider.setPaintLabels(true);
     valueUpperSlider.setPaintTicks(true);
+    valueUpperSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        somethingChanged(evt);
+      }
+    });
 
     hueLowerText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
     hueLowerText.setEnabled(false);
@@ -476,7 +537,16 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
+      boolean ok = true;
+      if (!fetched) {
+        int i = JOptionPane.showConfirmDialog(this, "You have settings that were not fetched from the robot. Are you sure you want to save them?", "Unfetched", JOptionPane.YES_NO_OPTION);
+        ok = (i == JOptionPane.YES_OPTION);
+      }
+      if (ok) {
         iPreferencesTransfer.preferencesSave(getPreferences());
+      } else {
+        addErrorMessage("Save cancelled");
+      }
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void fetchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchButtonActionPerformed
@@ -485,6 +555,8 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
       p = iPreferencesTransfer.preferencesFetch(p);
       if (p != null) {
         setPreferences(p);
+        fetched = true;
+        dirty = false;
       }
     }//GEN-LAST:event_fetchButtonActionPerformed
 
@@ -493,14 +565,61 @@ public class PreferencesEditorUI extends javax.swing.JFrame {
     clearErrorMessages();
   }//GEN-LAST:event_clearErrorButtonActionPerformed
 
-  private void hueLowerSliderMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_hueLowerSliderMouseWheelMoved
-    // TODO add your handling code here:
-  }//GEN-LAST:event_hueLowerSliderMouseWheelMoved
-
   private void autonomousComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autonomousComboBoxActionPerformed
     // TODO add your handling code here:
+    makeDirty(evt.toString());
   }//GEN-LAST:event_autonomousComboBoxActionPerformed
 
+  private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    // TODO add your handling code here:
+    boolean ok = true;
+    if (dirty) {
+        int i = JOptionPane.showConfirmDialog(this, "You have settings that have not been saved. Are you you want to exit?", "Unsaved changes", JOptionPane.YES_NO_OPTION);
+        ok = (i == JOptionPane.YES_OPTION);
+      }
+      if (ok) {
+        System.exit(0);
+      } else {
+        addErrorMessage("Close cancelled");
+      }
+  }//GEN-LAST:event_formWindowClosing
+
+  private void somethingChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_somethingChanged
+    // TODO add your handling code here:
+    makeDirty(evt.toString());
+  }//GEN-LAST:event_somethingChanged
+
+  private void autonomousForwardDistanceSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_autonomousForwardDistanceSliderStateChanged
+    // TODO add your handling code here:
+    makeDirty(evt.toString());
+  }//GEN-LAST:event_autonomousForwardDistanceSliderStateChanged
+
+  private void intakeSpeedSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_intakeSpeedSliderStateChanged
+    // TODO add your handling code here:
+    makeDirty(evt.toString());
+  }//GEN-LAST:event_intakeSpeedSliderStateChanged
+
+  private void cRIONameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cRIONameFieldActionPerformed
+    // TODO add your handling code here:
+    addErrorMessage("crioname changed");
+    makeDirty(evt.toString());
+  }//GEN-LAST:event_cRIONameFieldActionPerformed
+
+  private void autonomousComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_autonomousComboBoxItemStateChanged
+    // TODO add your handling code here:
+    makeDirty(evt.toString());
+  }//GEN-LAST:event_autonomousComboBoxItemStateChanged
+
+  void makeDirty(String s_evt) {
+    //addErrorMessage(s_evt);
+    //System.err.println (s_evt);
+    //new RuntimeException("Traceback...").printStackTrace();
+    if (!dirty) {
+      addErrorMessage("Dirty now!");
+    }
+    dirty = true;
+  }
+  
     PreferencesBean getPreferences() {
         PreferencesBean preferencesBean = new PreferencesBean();
         preferencesBean.setChooChooDelay(chooChooDelaySlider.getValue());
